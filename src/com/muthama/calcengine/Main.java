@@ -8,25 +8,31 @@ public class Main {
         char[] opCodes = {'a', 's', 'm', 'd'};
         double[] result = new double[opCodes.length];
 
-       for (int i = 0; i < opCodes.length; i++){
-           if(opCodes[i] =='a')
-               result[i] = leftVals[i] + rightVals[i];
+       for(int i = 0; i < opCodes.length; i++){
+           switch(opCodes[i]){
+               case 'a':
+                   result[i] = leftVals[i] + rightVals[i];
+                   break;
 
-           else if(opCodes[i] =='s')
-               result[i] = leftVals[i] - rightVals[i];
+               case 's':
+                   result[i] = leftVals[i] - rightVals[i];
+                   break;
 
-           else if(opCodes[i] =='m')
-               result[i] = leftVals[i] * rightVals[i];
+               case 'm':
+                   result[i] = leftVals[i] * rightVals[i];
+                   break;
 
-           else if(opCodes[i] =='d')
-               result[i] = rightVals[i] != 0.0d ? leftVals[i] / rightVals[i] : 0.0d;
-           
-           else {
-               System.out.println("Error - invalid opcode");
-               result[i] = 0.0d;
+               case 'd':
+                   result[i] = rightVals[i] != 0.0d ? leftVals[i] / rightVals[i] : 0.0d;
+                   break;
+
+               default:
+                   System.out.println("Error - invalid opcode");
+                   result[i] = 0.0d;
+                   break;
            }
-
        }
+
        for (double theResult : result) {
            System.out.print("result = ");
            System.out.println(theResult);
