@@ -16,20 +16,41 @@ public class Main {
            System.out.println(equation.getResult());
         }
 
+        System.out.println();
+        System.out.println("Using Overloading");
+        System.out.println();
+
         double leftDouble = 9.0d;
         double rightDouble = 4.0d;
         int leftInt = 9;
         int rightInt = 4;
 
-        MathEquation equationOverload = new MathEquation('a');
+        MathEquation equationOverload = new MathEquation('d');
 
         equationOverload.execute(leftDouble, rightDouble);
-        System.out.print("result=");
+        System.out.print("result = ");
         System.out.println(equationOverload.getResult());
 
         equationOverload.execute(leftInt, rightInt);
-        System.out.print("integer result=");
+        System.out.print("integer result = ");
         System.out.println(equationOverload.getResult());
+
+        System.out.println();
+        System.out.println("Using Inheritance");
+        System.out.println();
+
+        CalculateBase[] calculators = {
+                new Divider (100.0d, 50.0d),
+                new Adder (100.0d, 50.0d),
+                new Multiplier (100.0d, 50.0d),
+                new Subtractor (100.0d, 50.0d)
+        };
+
+        for (CalculateBase calculator: calculators) {
+            calculator.calculate();
+            System.out.print("result = ");
+            System.out.println(calculator.getResult());
+        }
 
     }
 }
